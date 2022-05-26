@@ -1,16 +1,11 @@
-import javax.imageio.IIOException;
-import javax.lang.model.element.Name;
+package pak;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class start {
 
-
-
-
-
-
-    public static void name1() throws IOException {
+    public void name1() throws IOException {
         Scanner k = new Scanner(System.in);
         System.out.println(TXTclr.RESET + "Как вас зовут?" );
         String num1 = k.nextLine();
@@ -23,8 +18,7 @@ public class start {
         System.out.println("Приветствую тебя, " + num1);
         prologue(num1);
     }
-
-    public static void prologue(String num1){
+    public void prologue(String num1){
 
         System.out.println(" \nЭто была история о скучной жизни " + num1 + ", который проживал ее как по шаблону." +
                 " Ему было уже 23, а он до сих пор сидел на шее у мамки." + "\n Но однажны он понял, что ему надоело" +
@@ -34,7 +28,8 @@ public class start {
                 "\n          СИМУЛЯТОР ЮТУБЕРА");
         }
 
-    public static void ch_start() throws IOException {
+    public void ch_start() throws IOException, InterruptedException {
+        Thread.sleep(5000);
         Scanner s = new Scanner(System.in);
         System.out.println(TXTclr.RESET + "\n=====================================================");
         System.out.println("Придумайте название канала:");
@@ -45,17 +40,16 @@ public class start {
         fos1.write(ch_name);
         fos1.close();
     }
-    public static void ch_theme() throws IOException {
+    public void ch_theme() throws IOException {
         Scanner th = new Scanner(System.in);
         System.out.println("\nВыберите тематику канала:" + "\n1 - Видеоигры | 2 - Влоги");
         int ch_them = th.nextInt();
+        String conv = Integer.toString(ch_them);
 
         File inputchTH = new File("src/saves/ChannelTheme.txt");
         Writer fos2 = new FileWriter(inputchTH);
-        fos2.write(ch_them);
+        fos2.write(conv);
         fos2.close();
-
-
     }
 }
 
